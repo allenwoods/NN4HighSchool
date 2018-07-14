@@ -11854,23 +11854,21 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;">&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;<a class="anchor-link" href="#&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;">&#182;</a></h1>
-</div>
-</div>
-</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://playground.tensorflow.org/&#39;</span>
-<span class="n">iframe</span> <span class="o">=</span> <span class="s1">&#39;&lt;iframe src=&#39;</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">&#39; width=700 height=350&gt;&lt;/iframe&gt;&#39;</span>
-<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">iframe</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s1">&#39;Breakout-v0&#39;</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rgb_array&#39;</span><span class="p">))</span> <span class="c1"># only call this once</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;rgb_array&#39;</span><span class="p">))</span> <span class="c1"># just update the data</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">())</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11882,11 +11880,235 @@ a.anchor-link {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt"></div>
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<iframe src=https://playground.tensorflow.org/ width=700 height=350></iframe>
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQoAAAFMCAYAAAAzyvK4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAABShJREFUeJzt3TFuJEUYgFE3cow4AREBR/AJrAm4zPoEnMDHWHEAgtEG
+hCsfBhEgRLDBNhGrFWLm88jTrqnxe5GlsavLyae/3K32sq7regNwxDejNwBcPqEAklAASSiAJBRA
+EgogCQWQhAJIQgGk25EXX5Zl5OWBrxx7SNtEASShAJJQAEkogCQUQBIKIA29PXpNHh8fX7zGw8PD
+Va29lXPs+ebm9fd9yP/9Ppeyt3+ZKIAkFEBy9NjYa4/8W47l51r7pU4dyy9l3zMzUQBJKIDk6MHV
+cMTYjokCSEIBJEcPrsaWd5jeOhMFkIQCSI4eG9ty7J117Ze65L1dKxMFkJb12Bs1t764l+vCxfBy
+XeBFhAJIQ/+Y6Y9SMAcTBZCEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRA
+EgogCQWQhAJIQgEkoQCSUABpmn8peOg/VQOHnetN9yYKIAkFkIQCSEIBJKEAklAASSiAJBRAEgog
+CQWQhAJIQgEkoQCSUABJKIAkFEASCiAJBZCEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEA
+klAASSiAJBRAEgogCQWQbkdv4LmedrvRW4DpfDzTOiYKIAkFkIQCSEIBJKEAklAASSiAJBRAmuaB
+q88//Dl6C/BmmSiAJBRAEgogCQWQhAJIQgEkoQDSNM9R/PHt36O3AG+WiQJIQgEkoQCSUABJKIAk
+FEASCiAJBZDmeeDqx0+jtwDz+f08y5gogCQUQBIKIAkFkIQCSEIBJKEA0jTPUbz//P3oLcB07s+0
+jokCSEIBJKEAklAASSiAJBRAEgogCQWQpnng6tMvP4/eAszn/uNZljFRAEkogCQUQBIKIAkFkIQC
+SEIBpGmeo/htfzd6CzCdn+4fz7KOiQJIQgEkoQCSUABJKIAkFEASCiAJBZCEAkhCASShAJJQAEko
+gCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRAEgogCQWQhAJIQgEkoQCSUABJKIAkFEASCiAJBZCE
+AkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRAEgogCQWQhAJIQgEkoQCSUABJ
+KIAkFEASCiAJBZCEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRAEgogCQWQ
+hAJIQgEkoQCSUABJKIAkFEASCiAJBZCEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAA
+SSiAJBRAEgogCQWQhAJIQgEkoQDS7egNwCyedrsvX9/t9wN38vpMFEASCiAJBZCEAkhCASR3PeCZ
+3tqdjq+ZKIAkFEASCiAJBZCEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRA
+EgogCQWQhAJIQgEkoQCSUABJKIAkFEASCiAJBZCEAkhCAaTbkRf/9bu/Rl4epvO02532Ax8+PP97
+3707+JGJAkhCASShAJJQAEkogDT0rgdwmrv9/qTvP/kuyQEmCiAJBZAcPeCKnXJUWY98tqzreuzz
+TS3LMurSwH8cS4GjB5CEAkhCASShAJJQAEkogCQUQBIKIAkFkIQCSEIBJKEAklAASSiAJBRAEgog
+CQWQhAJIQgGkoS/XHfi6TuAEJgogCQWQhAJIQgEkoQCSUABJKIAkFEASCiAJBZCEAkhCASShAJJQ
+AEkogCQUQBIKIAkFkIQCSEIBJKEAklAA6R9wEmaGNdNxpAAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="c1">#     display(a + b)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">[</span><span class="n">z</span><span class="o">.</span><span class="n">result</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Widget Javascript not detected.  It may not be installed or enabled properly.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+
+ 
+ 
+<div id="c765d4bd-8d36-4022-b6dd-ab3a436cf2fb"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#c765d4bd-8d36-4022-b6dd-ab3a436cf2fb');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3338a684a89444ab9f26fb432cb5bcbf"}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;">&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;<a class="anchor-link" href="#&#19981;&#21487;&#24605;&#35758;&#30340;&#31070;&#32463;&#32593;&#32476;">&#182;</a></h1>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">html</span>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;minimal demo&lt;/title&gt;
+ 
+&lt;!-- CSS goes here --&gt;
+&lt;style&gt;
+body {
+  background-color: #FFF; /* example... */
+}
+&lt;/style&gt;
+ 
+&lt;!-- import convnetjs library --&gt;
+&lt;script src=&quot;http://cs.stanford.edu/people/karpathy/convnetjs/build/convnet-min.js&quot;&gt;&lt;/script&gt;
+ 
+&lt;!-- javascript goes here --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+ 
+function periodic() {
+  var d = document.getElementById(&#39;egdiv&#39;);
+  d.innerHTML = &#39;Random number: &#39; + Math.random()
+}
+ 
+var net; // declared outside -&gt; global variable in window scope
+function start() {
+  // this gets executed on startup
+  //... 
+  net = new convnetjs.Net();
+  // ...
+ 
+  // example of running something every 1 second
+  setInterval(periodic, 1000);
+}
+ 
+&lt;/script&gt;
+&lt;/head&gt;
+ 
+&lt;body onload=&quot;start()&quot;&gt;
+&lt;div id=&quot;egdiv&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+<div class="output_html rendered_html output_subarea ">
+<html>
+<head>
+<title>minimal demo</title>
+ 
+<!-- CSS goes here -->
+<style>
+body {
+  background-color: #FFF; /* example... */
+}
+</style>
+ 
+<!-- import convnetjs library -->
+<script src="http://cs.stanford.edu/people/karpathy/convnetjs/build/convnet-min.js"></script>
+ 
+<!-- javascript goes here -->
+<script type="text/javascript">
+ 
+function periodic() {
+  var d = document.getElementById('egdiv');
+  d.innerHTML = 'Random number: ' + Math.random()
+}
+ 
+var net; // declared outside -> global variable in window scope
+function start() {
+  // this gets executed on startup
+  //... 
+  net = new convnetjs.Net();
+  // ...
+ 
+  // example of running something every 1 second
+  setInterval(periodic, 1000);
+}
+ 
+</script>
+</head>
+ 
+<body onload="start()">
+<div id="egdiv"></div>
+</body>
+</html>
 </div>
 
 </div>
